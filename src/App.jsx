@@ -4,7 +4,12 @@ import {
     Switch, 
     Route
 } from 'react-router-dom';
-import Navbar from './Navbar.jsx'
+import Navbar from './Navbar.jsx';
+import Home from './Home.jsx';
+
+function pathName(p) {
+    return process.env.PUBLIC_URL + p
+}
 
 
 class App extends React.Component {
@@ -13,8 +18,8 @@ class App extends React.Component {
         return (<BrowserRouter>
             <Navbar />
             <Switch>
-                <Route path="/">
-
+                <Route path={pathName('/')}>
+                    <Home />
                 </Route>
 
 
