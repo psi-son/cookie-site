@@ -3,7 +3,6 @@ import {
     Link,
     useLocation
 } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 
 
 function Navbar() {
@@ -20,11 +19,12 @@ function Navbar() {
         <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
                 {getLiLink("/", "Home")}
-                {getLiLink("/Edit", "Edit")}
+                {getLiLink("/Girls", "Girls")}
+                {getLiLink("/Tags", "Tags")}
+                
             </ul>
         </div>
     </nav>);
 }
-
 
 export default Navbar;
