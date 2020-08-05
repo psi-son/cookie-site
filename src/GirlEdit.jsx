@@ -1,8 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import firebase from './firebase.js';
+import constants from './Constants.js';
 import Card from './Card.jsx';
 import Media from './Media.jsx';
+import Tag from './Tag.jsx'
 
 class GirlEdit extends React.Component {
     constructor(props) {
@@ -52,7 +54,7 @@ class GirlEdit extends React.Component {
 
     
     render() {
-        var edit = true;
+        var edit = constants.getEditMode();
 
         if (!edit) {
             return (<div className="row col-md-4 mx-auto mt-3">
@@ -62,16 +64,12 @@ class GirlEdit extends React.Component {
         
         var tags = [];
         this.state.Tags.split(", ").forEach(tag =>
-            tags.push(<span className="badge badge-secondary" style={{margin: "1px"}} key={tag}>
-                {tag}
-            </span>)
+            tags.push(<Tag name={tag} type="tag" key={tag} />)
         )
 
         var girl = [];
         this.state.Girl.split(", ").forEach(g =>
-            girl.push(<span className="badge badge-secondary" style={{margin: "1px"}} key={g}>
-                {g}
-            </span>)
+            girl.push(<Tag name={g} type="girl" key={g} />)
         )
 
         return (<div className="container row col-md-8 mx-auto mt-3">
@@ -136,7 +134,7 @@ class GirlEdit extends React.Component {
                                     </div>
                                     <div className="row">
                                         <strong>Game:</strong> 
-                                        <span className="badge badge-secondary" style={{margin: "1px"}}>
+                                        <span className="badge badge-secondary">
                                             {this.state.Game}
                                         </span>
                                     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Media from './Media.jsx'
+import Tag from './Tag.jsx'
 
 class Card extends React.Component {
     render () {
@@ -10,9 +11,11 @@ class Card extends React.Component {
         
         var tagDivs = []
         tags.split(", ").forEach(name =>
-            tagDivs.push(<span className="badge badge-secondary" style={{margin: "1px"}} key={name}>
-                {name}
-            </span>)
+            tagDivs.push(<Tag name={name} type="tag" key={name}/>)
+        )
+        var girlDivs = []
+        girl.split(", ").forEach(girl => 
+            girlDivs.push(<Tag name={girl} type="girl" key={girl} />)
         )
 
         return (<div className="card ">
@@ -25,9 +28,7 @@ class Card extends React.Component {
             </div>
             <div className="row">
                 <strong>Girl:</strong>
-                <span className="badge badge-secondary" style={{margin: "1px"}}>
-                    {girl}
-                </span>
+                {girlDivs}
             </div>
             <div className="row">
                 <strong>Tags:</strong>
